@@ -10,9 +10,10 @@ Bu proje, .NET Core Web API ve Angular kullanılarak geliştirilmiş bir otel re
     Email doğrulama sistemi
     PostgreSQL veritabanı entegrasyonu
 
-    🚀 Teknolojiler 
-Frontend: Angular, TypeScript, HTML, CSS
-Backend: .NET Core Web API, CQRS, Onion Architecture
-Veritabanı: PostgreSQL
-Kimlik Doğrulama: JWT
-Diğer: Entity Framework Core, MediatR
+
+🚀 Teknolojiler 
+    Frontend: Angular, TypeScript, HTML, CSS
+    Backend: .NET Core Web API, CQRS, Onion Architecture
+    Veritabanı: PostgreSQL
+    Kimlik Doğrulama: JWT
+    Diğer: Entity Framework Core, MediatR
