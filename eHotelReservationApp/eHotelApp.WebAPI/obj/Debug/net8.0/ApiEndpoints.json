@@ -1,0 +1,250 @@
+[
+  {
+    "ContainingType": "eHotelApp.WebAPI.Controllers.AuthController",
+    "Method": "CreateUser",
+    "RelativePath": "api/Auth/CreateUser",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "eHotelApp.Application.Features.Auth.Users.CreateUser.CreateUserCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "eHotelApp.WebAPI.Controllers.AuthController",
+    "Method": "DeleteUser",
+    "RelativePath": "api/Auth/DeleteUser",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "eHotelApp.Application.Features.Auth.Users.DeleteUserById.DeleteUserByIdCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "eHotelApp.WebAPI.Controllers.AuthController",
+    "Method": "GetAllUsers",
+    "RelativePath": "api/Auth/GetAllUsers",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "eHotelApp.WebAPI.Controllers.AuthController",
+    "Method": "SendCode",
+    "RelativePath": "api/Auth/SendCode",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "eHotelApp.Application.Features.Auth.Email.SendCode.SendCodeResponse",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "eHotelApp.WebAPI.Controllers.AuthController",
+    "Method": "UpdateUser",
+    "RelativePath": "api/Auth/UpdateUser",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "eHotelApp.Application.Features.Auth.Users.UpdateUser.UpdateUserCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "eHotelApp.WebAPI.Controllers.AuthController",
+    "Method": "VerifyCode",
+    "RelativePath": "api/Auth/VerifyCode",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "eHotelApp.Application.Features.Auth.Email.EmailVerify.EmailVerifyResponse",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "eHotelApp.WebAPI.Controllers.LoginController",
+    "Method": "Login",
+    "RelativePath": "api/Login/Login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "eHotelApp.Application.Features.Auth.Login.LoginCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "eHotelApp.WebAPI.Controllers.ReservationsController",
+    "Method": "AddReservations",
+    "RelativePath": "api/Reservations/AddReservations",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "eHotelApp.Application.Features.Reservations.AddReservations.AddReservationsQuery",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "eHotelApp.WebAPI.Controllers.ReservationsController",
+    "Method": "GetAllReservationsDate",
+    "RelativePath": "api/Reservations/GetAllReservationsDate",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "roomId",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "eHotelApp.WebAPI.Controllers.RoomController",
+    "Method": "AddRoom",
+    "RelativePath": "api/Room/AddRoom",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "eHotelApp.Application.Features.Rooms.Rooms.AddRooms.AddRoomsCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "eHotelApp.WebAPI.Controllers.RoomController",
+    "Method": "AddRoomFeature",
+    "RelativePath": "api/Room/AddRoomFeature",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "eHotelApp.Application.Features.Rooms.Features.RoomFeatures.RoomFeaturesCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "eHotelApp.WebAPI.Controllers.RoomController",
+    "Method": "AddRoomTypes",
+    "RelativePath": "api/Room/AddRoomTypes",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "eHotelApp.Application.Features.Rooms.Types.RoomTypes.RoomTypesCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "eHotelApp.WebAPI.Controllers.RoomController",
+    "Method": "GetAllFeatures",
+    "RelativePath": "api/Room/GetAllFeatures",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "eHotelApp.WebAPI.Controllers.RoomController",
+    "Method": "GetAllFilteredRooms",
+    "RelativePath": "api/Room/GetAllFilteredRooms",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "eHotelApp.Application.Features.Rooms.Rooms.GetAllRoomsByFiltered.GetAllRoomsByFilteredQuery",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "eHotelApp.WebAPI.Controllers.RoomController",
+    "Method": "GetAllRooms",
+    "RelativePath": "api/Room/GetAllRooms",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "eHotelApp.WebAPI.Controllers.RoomController",
+    "Method": "GetAllTypes",
+    "RelativePath": "api/Room/GetAllTypes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "eHotelApp.WebAPI.Controllers.RoomController",
+    "Method": "UpdateRoomTypes",
+    "RelativePath": "api/Room/UpdateRoomTypes",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "eHotelApp.Application.Features.Rooms.Types.UpdateRoomTypes.UpdateRoomTypesCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

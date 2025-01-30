@@ -1,0 +1,20 @@
+{
+  "Version": 1,
+  "Hash": "Qn5GU7B71iK1dm5GN2jIhIhG39qRhA5QjVIC/7kBk3I=",
+  "Source": "eHotelApp.WebAPI",
+  "BasePath": "_content/eHotelApp.WebAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "eHotelApp.WebAPI\\wwwroot",
+      "Source": "eHotelApp.WebAPI",
+      "ContentRoot": "C:\\Users\\alist\\Desktop\\Rezervasyon\\eHotelReservationApp\\eHotelApp.WebAPI\\wwwroot\\",
+      "BasePath": "_content/eHotelApp.WebAPI",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [],
+  "Endpoints": []
+}
