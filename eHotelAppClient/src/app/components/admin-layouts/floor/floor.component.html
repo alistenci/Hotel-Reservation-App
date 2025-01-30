@@ -1,0 +1,162 @@
+   <!-- Modal -->
+   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form #addRoomForm="ngForm" autocomplete="off" (ngSubmit)="addRoom(addRoomForm)">
+          <div class="modal-body">
+
+            <div class="form-group">
+              <label>Oda İsmi</label>
+              <input type="text" class="form-control mt-2" [(ngModel)]="roomsModel.roomName" name="RoomName">
+            </div>
+
+            <div class="form-group mt-2">
+              <label>Açıklama</label>
+              <textarea class="form-control mt-2" [(ngModel)]="roomsModel.Description" name="Description"></textarea>
+            </div>
+
+            <div class="form-group mt-2">
+              <label>Minimum Misafir</label>
+              <input type="text" class="form-control mt-2" [(ngModel)]="roomsModel.minGuests" name="MinGuests">
+            </div>
+
+            <div class="form-group mt-2">
+              <label>Maximum Misafir</label>
+              <input type="text" class="form-control mt-2" [(ngModel)]="roomsModel.maxGuests" name="maxGuests">
+            </div>
+
+            <div class="form-group mt-2">
+              <label>Maximum Çocuk</label>
+              <input type="text" class="form-control mt-2" [(ngModel)]="roomsModel.maxChildren" name="maxChildren">
+            </div>
+
+            <div class="form-group mt-2" >
+              <label>Kat Numarası</label>
+              <input type="text" class="form-control mt-2" [(ngModel)]="roomsModel.floorNumber" name="floorNumber" readonly disabled="false">
+            </div>
+
+            <div class="form-group mt-2">
+              <label>Toplam Oda Sayısı</label>
+              <input type="text" class="form-control mt-2" [(ngModel)]="roomsModel.roomCount" name="roomCount">
+            </div>
+
+            <div class="form-group mt-2">
+              <label>Oda Tipi</label>
+              <select class="form-control" name="roomTypeId" [(ngModel)]="roomsModel.RoomTypeId">
+                <option [value]="0">Seçiniz...</option>
+                <ng-container *ngFor="let type of roomTypes">
+                  <option [value]="type.id">{{type.typeName}}</option>
+                </ng-container>
+              </select>
+            </div>
+
+
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Kaydet</button>
+          </div>
+        </form>
+          </div>
+        </div>
+      </div>
+  
+
+<div class="container">
+    <div class="mt-3 d-flex justify-content-between align-items-center">
+        <h6>Floor Page</h6>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a routerLink="/">Admin</a></li>
+              <li class="breadcrumb-item active">Floor</li>
+            </ol>
+        </nav>
+    </div>
+    <hr>
+    <!-- ************************************************************************** -->
+
+    <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center">
+      <mat-tab *ngFor="let floor of floors" [label]="floor + '. Kat'">
+        <div class="add d-flex justify-content-between flex-wrap mt-2">
+          <div class="mb-2 me-2" style="flex: 1 1 10%;">
+            <button class="btn btn-outline-dark w-100" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="selectFloor(floor)" style="font-weight: bold;">
+              {{floor}}. Kat Odası Ekle
+            </button>
+          </div>
+      </div>
+      <hr>
+      <div>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Oda İsmi</th>
+              <th>Oda Türü</th>
+              <th>Oda Numarası</th>
+              <th>Dolu / Boş</th>
+              <th>İşlemler</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let rooms of filteredRooms[floor]; let i = index">
+              <td>{{i + 1}}</td>
+              <td>{{rooms.roomName}}</td>
+              <td>{{rooms.roomType}}</td>
+              <td>{{rooms.roomNumber}}</td>
+              <td>
+                @if(rooms.isAvailable == true){
+                  <span class="me-2">Boş</span>
+                  <i class="fa-solid fa-circle fa-beat-fade dolu" style="color: #029267;"></i>
+                }@else {
+                  <span class="me-3">Dolu</span>
+                  <i class="fa-solid fa-circle fa-beat-fade" style="color: #ff0505;"></i>
+                }
+              </td>
+              <td>
+                <button  data-bs-toggle="modal" data-bs-target="#updateModal" class="btn btn-sm btn-outline-primary me-1" title="Update">
+                  <i class="fa-solid fa-edit"></i>
+              </button>
+              <button class="btn btn-sm btn-outline-danger" title="Delete">
+                  <i class="fa-solid fa-trash"></i>
+              </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      </mat-tab>
+    </mat-tab-group>
+</div>
+
+
+
+
+
+
+
+       <!-- <div class="card-kapsayici">
+        @for(rooms of getAllRoomsModel; track rooms){
+          <div class="card" *ngFor="let i of [rooms.roomCount]" [ngStyle]="{
+              'border': rooms.isAvailable == true ? '2px solid green' : '2px solid red'
+            }">
+            <p class="room-number">{{rooms.roomNumber}}</p>
+            <div class="button-container">
+              <button class="btn center-button">
+                <i class="fa-solid fa-plus fa-2xl"></i>
+              </button>
+              <button class="btn btn-sm btn-outline-primary edit-button me-1" title="Update">
+                  <i class="fa-solid fa-edit"></i>
+              </button>
+              <button class="btn btn-sm btn-outline-danger trash-button" title="Delete">
+                  <i class="fa-solid fa-trash"></i>
+              </button>
+          </div>
+          <p class="room-name">{{rooms.roomName}}</p>
+        </div>
+      }
+  
+  </div> -->

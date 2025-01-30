@@ -1,0 +1,53 @@
+.card {
+    height: 285px;
+    width: 285px;
+    margin: 5px 36px 15px 0px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .card-kapsayici {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .button-container {
+    position: relative;
+  }
+  
+  .edit-button {
+    position: absolute;
+    top: -110px;
+    right: -70px;
+  }
+
+  .trash-button {
+    position: absolute;
+    top: -110px;
+    right: -100px;
+  }
+  
+  .room-name{
+    position: absolute;
+    top: 240px;
+  }
+
+  .new-room{
+    position: absolute;
+    top: 120px;
+    width: 150px;
+    left: -25px;
+  }
+
+  .room-number{
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-weight: bold;
+  }
+
+  .dolu{
+    margin-left: 13px;
+}

@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+/* Carousel */
+.r-img {
+    position: relative;
+}
+
+.r-img::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.096);
+    z-index: 0;
+}
+
+.k-img {
+    width: 100%;
+    height: 92.2vh;
+    z-index: -1;
+}
+
+.carousel-item {
+    transition: transform 1.3s ease, opacity 1s ease;
+}
+
+/* Hakkımızda */
+.hakkimizda {
+    background-color: #F8F6F0;
+    margin: 0px;
+    padding: 80px 10px 20px 10px;
+    border-radius: 5px;
+}
+
+.h-baslik {
+    font-family: "Open Sans", sans-serif;
+    font-size: 65px;
+    font-weight: 600;
+    color: #CEB88D;
+}
+
+.h-baslik2 {
+    font-family: "Open Sans", sans-serif;
+    font-weight: bold;
+    color: rgb(122, 117, 117);
+}
+
+/* Odalar */
+.f-kapsayici {
+    height: 80vh;
+    background-color: #f8f8e441;
+}
+
+.f-kapsayici1 {
+    height: 80vh;
+    background-color: #ddf4fa48;
+}
+
+.kutu1, .kutu2, .kutu3 {
+    height: 100%;
+}
+
+.kutu1 {
+    width: 40%;
+}
+
+.kutu2 {
+    width: 30%;
+}
+
+.kutu3 {
+    width: 30%;
+}
+
+.o-resim {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+/* Aktiviteler */
+.f-kapsayici2 {
+    height: 80vh;
+    background-color: #f7ebd238;
+}
+
+.act-resim {
+    height: 100%;
+    width: 20%;
+}
+
+/* Footer */
+.footer {
+    height: 15vh;
+    background-color: rgba(182, 217, 247, 0.185);
+}
+
+/* Mobil uyumluluk */
+@media screen and (max-width: 960px) {
+    .kutu1, .kutu2, .kutu3 {
+        width: 100%; /* Ekran küçüldüğünde kutular tam genişlikte olacak */
+        height: auto; /* Yükseklik otomatik*/
+        margin-bottom: 5px;
+    }
+
+    .o-resim {
+        height: auto; /* Resimlerin yüksekliği otomatik ayarlanacak */
+    }
+
+    .act-resim {
+        width: 100%; /* Tüm resimler tam genişlikte olacak */
+        height: auto; /* Yükseklik otomatik ayarlanacak */
+        margin-bottom: 5px;
+    }
+
+    /* Hakkımızda  */
+    .h-baslik {
+        font-size: 45px; /* Daha küçük ekranlar için başlık boyutu */
+    }
+
+    .h-baslik2 {
+        font-size: 30px; /* Alt başlık boyutunu küçülttüm */
+    }
+
+    /* Kutu içerikleri için boşluk ayarlamaları */
+    .hakkimizda {
+        padding: 40px 10px 10px 10px; /* Mobilde daha az boşluk */
+    }
+
+    .f-kapsayici, .f-kapsayici1, .f-kapsayici2 {
+        height: auto; /* Yükseklik otomatik olarak içerikle ayarlanır */
+    }
+}

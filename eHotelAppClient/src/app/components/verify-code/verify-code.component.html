@@ -1,0 +1,25 @@
+
+     <div class="container d-flex justify-content-center align-items-center min-vh-100">
+        <div class="kapsayici d-flex">
+            <img src="/images/h1.jpeg" class="img-fluid rsm1">
+            <div class="denemekutu">
+                <h6 class="text-center mt-5">Doğrulama Kodunu Giriniz</h6>
+    
+                <form class="mt-4" formValidate #verifyCodeForm="ngForm" autocomplete="off" (ngSubmit)="verifyCode(verifyCodeForm)">
+                    <div class="form-group d-flex justify-content-center">
+                        <input class="form-control fc" type="text" name="verifyCode" placeholder="Verify Code" autocomplete="off" [(ngModel)]="verifyCodeModel.verifyCode" >
+                        <div class="invalid-feedback"></div>
+                    </div>
+                    <div class="form-group mt-5 d-flex justify-content-center">
+                        <button type="submit" class="form-buton">
+                            Doğrula
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div> 
+
+    <button type="submit" (click)="sendVerifyCode()">
+        Mail
+    </button>

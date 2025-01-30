@@ -1,0 +1,165 @@
+<!-- Modal Başlangıç -->
+<div class="modal fade" id="reservations" tabindex="-1" aria-labelledby="ReservationsModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header d-flex align-items-center justify-content-center">
+       <h4>Rezervasyon Ekle</h4>
+      </div>
+      <form #addReservationsForm="ngForm" autocomplete="off" (ngSubmit)="addReservation(addReservationsForm)">
+          <div class="modal-body">
+
+            <div class="form-group mt-2" >
+              <label>Ad Soyad</label>
+              <input type="text" class="form-control mt-2" [(ngModel)]="adminReservationsModel.fullName" name="fullName">
+            </div>
+
+              <div class="form-group mt-2" >
+                <label>Email Adresi</label>
+                <input type="text" class="form-control mt-2" [(ngModel)]="adminReservationsModel.eMail" name="eMail">
+              </div>
+
+              <div class="form-group mt-2" >
+                <label>Telefon Numarası</label>
+                <input type="text" class="form-control mt-2" [(ngModel)]="adminReservationsModel.phoneNumber" name="phoneNumber">
+              </div>
+
+              <div class="form-group mt-2" >
+                <label>Kimlik Numarası</label>
+                <input type="text" class="form-control mt-2" [(ngModel)]="adminReservationsModel.identityNumber" name="identityNumber">
+              </div>
+
+              <div class="form-group mt-2" style="display: none;">
+                <label>Kat Numarası</label>
+                <input type="text" class="form-control mt-2" [(ngModel)]="adminReservationsModel.floorNumber" name="floorNumber" readonly disabled="false">
+              </div>
+
+              <div class="form-group mt-2" >
+                <label>Oda Numarası</label>
+                <input type="text" class="form-control mt-2" [(ngModel)]="adminReservationsModel.roomNumber" name="roomNumber" readonly disabled="false">
+              </div>
+
+              <div class="form-group mt-2" style="display: none;">
+                <label>Oda Id</label>
+                <input type="text" class="form-control mt-2" [(ngModel)]="adminReservationsModel.RoomId" name="RoomId" readonly disabled="false">
+              </div>
+
+              <div class="form-group mt-2" >
+                <label>Notlar</label>
+                <input type="text" class="form-control mt-2" [(ngModel)]="adminReservationsModel.notes" name="notes">
+              </div>
+
+              <div class="modal-body">
+                <!-- Diğer form alanları -->
+                <div class="form-group mt-2">
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Giriş Tarihi</mat-label>
+                    <input matInput [matDatepicker]="startDatePicker" [(ngModel)]="adminReservationsModel.CheckInDate" name="CheckInDate"  disabled>
+                    <mat-datepicker-toggle matSuffix [for]="startDatePicker" disabled="false"></mat-datepicker-toggle>
+                    <mat-datepicker touchUi #startDatePicker [dateClass]="dateClass" disabled="false"></mat-datepicker>
+                  </mat-form-field>
+                </div>
+                <div class="form-group mt-2">
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Çıkış Tarihi</mat-label>
+                    <input matInput [matDatepicker]="endDatePicker" [(ngModel)]="adminReservationsModel.CheckOutDate" name="CheckOutDate"  disabled>
+                    <mat-datepicker-toggle matSuffix [for]="endDatePicker" disabled="false"></mat-datepicker-toggle>
+                    <mat-datepicker touchUi #endDatePicker [dateClass]="dateClass" disabled="false"></mat-datepicker>
+                  </mat-form-field>
+                </div>
+              </div>
+
+              <div>
+                <button type="button" class="btn btn-outline-danger w-100" (click)="hesapla()">
+                  Fiyat Hesapla
+                </button>
+              </div>
+              <div class="d-flex mt-2 justify-content-center">
+                @if(totalPrice > 0){
+                <h6>Toplam ücret: {{totalPrice}} ₺</h6>
+                }
+              </div>
+              <!-- <div class="form-group mt-2" >
+                <label>Toplam Ücret</label>
+                <input type="text" class="form-control mt-2" [(ngModel)]="adminReservationsModel.TotalPrice" name="TotalPrice">
+              </div> -->
+
+          </div>
+      
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Kaydet</button>
+      </div>
+  </form>
+    </div>
+  </div>
+</div>
+ <!-- Modal Bitiş -->
+
+<div class="container">
+    <div class="mt-3 d-flex justify-content-between align-items-center">
+        <h6>Rezervasyon</h6>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a routerLink="/">Admin</a></li>
+              <li class="breadcrumb-item active">Rezervasyon</li>
+            </ol>
+        </nav>
+    </div>
+    <hr>
+
+    <!-- ******************************************************************************* -->
+
+    <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center">
+        <mat-tab *ngFor="let floor of floors" [label]="floor + '. Kat'">
+          <div class="add d-flex justify-content-between flex-wrap mt-2">
+        </div>
+        <hr>
+        <div>
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Oda Id</th>
+                <th>Oda İsmi</th>
+                <th>Oda Türü</th>
+                <th>Oda Numarası</th>
+                <th>Oda Fiyat</th>
+                <th>Dolu / Boş</th>
+                <th>İşlemler</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let rooms of filteredRooms[floor]; let i = index">
+                <td>{{i + 1}}</td>
+                <td>{{rooms.id}}</td>
+                <td>{{rooms.roomName}}</td>
+                <td>{{rooms.roomType}}</td>
+                <td>{{rooms.roomNumber}}</td>
+                <td>{{rooms.price}}</td>
+                <td>
+                  @if(rooms.isAvailable == true){
+                    <span class="me-2">Boş</span>
+                    <i class="fa-solid fa-circle fa-beat-fade dolu" style="color: #029267;"></i>
+                  }@else {
+                    <span class="me-3">Dolu</span>
+                    <i class="fa-solid fa-circle fa-beat-fade" style="color: #ff0505;"></i>
+                  }
+                </td>
+                <td>
+                    <button  data-bs-toggle="modal" data-bs-target="#reservations" class="btn btn-sm btn-outline-success me-1" title="Add" (click)="selectRoom(rooms.roomNumber, rooms.id)" (click)="selectFloor(floor)" (click)="loadCheckDates(adminReservationsModel.RoomId)" (click)="sendPrice(rooms.price)">
+                      <i class="fa-solid fa-plus"></i>
+                    </button>
+                  <button  data-bs-toggle="modal" data-bs-target="#updateModal" class="btn btn-sm btn-outline-primary me-1" title="Update">
+                    <i class="fa-solid fa-edit"></i>
+                </button>
+                <button class="btn btn-sm btn-outline-danger" title="Delete">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        </mat-tab>
+      </mat-tab-group>
+</div>

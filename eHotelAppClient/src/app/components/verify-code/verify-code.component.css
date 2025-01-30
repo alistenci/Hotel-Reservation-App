@@ -1,0 +1,53 @@
+.body-kapsayici{
+    background-color: #f1e6e313;
+    }
+    
+    
+    .kapsayici{
+        width: 800px;
+        height: 600px;
+    }
+    
+    .rsm1{
+        height: 100%;
+        width: 40%;
+        border-radius: 10px;
+    }
+    
+    .denemekutu{
+        height: 100%;
+        width: 100%;
+    }
+    .hr-border{
+        width: 70%;
+        margin: auto;
+    }
+    
+    .fc{
+        height: 50px;
+        width: 90%;
+    }
+    
+    .form-buton{
+        background: linear-gradient(to left, #ec7a7e, #e99981);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 5px;
+        transition: background 0.3s ease;
+        width: 90%;
+    }
+    
+    .form-buton:hover{
+        background: linear-gradient(to left, #e99981, #ec7a7e);
+    }
+    
+    .hr1{
+        width:216px;
+    }
+    
+    .mx{
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
